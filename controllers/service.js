@@ -1,7 +1,9 @@
 const Service = require("../models/service");
 const addService = async (req, res) => {
   try {
+    console.log(req.body);
     const service = new Service(req.body);
+
     await service.save();
     res.status(201).json({ message: "the service name save successfully " });
   } catch (error) {
